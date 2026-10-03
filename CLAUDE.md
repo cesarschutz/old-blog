@@ -30,43 +30,13 @@ outras portas) sai.
 - O **`DESIGN.md`** (raiz) é a fonte de verdade do visual. Ele vence qualquer ferramenta, inclusive o
   Impeccable (sem "go all out", redesign ou troca do `DESIGN.md`).
 - Todo trabalho em post (criar, escrever, adaptar, importar, migrar, revisar) segue a skill **`post`**.
-- **Formato do post (D63):** todo post, novo ou ajustado, começa por uma conversa com o Cesar:
-  detalhado (com o TL;DR recolhível) ou resumo (com o infográfico), a estrutura do que entra e as
-  fontes (os links que ele estudou ou, sem eles, fontes confiáveis). Os links ficam ao longo do texto
-  e também em `## Fontes`.
 - **Caneta do caderno (D48):** a última etapa de todo post é a passada de caneta (skill **`caneta`**):
   ler o guia vivo `docs/marcacoes.md` inteiro, propor as marcações (trecho, tipo, motivo), aplicar só
   com o OK do Cesar e testar em 320, 390, 768, 1280 e 1600px nos dois temas. Ajuste que o Cesar pedir
   nas marcações vai na hora para "Ajustes do Cesar" no guia, com a data.
 - Posts para adaptar ficam em **`entrada/`** (fora do git).
-- **Controles em prova (D65):** a `Lousa` e a `Animacao` aceitam `controles="marca-texto" | "caderno" |
-  "post-it"` (as opções do protótipo `/prototipos/controles/`). Cada post da prova fica com a opção que
-  recebeu (lista na D65); post novo fica sem `controles` até o Cesar escolher.
-- **Figura em passos (D67, em prova):** um formato só no lugar da lousa de passos, da de comparação e da
-  animação com play (`FiguraPassos`, regras na skill `figura`), na página `/animacoes-test-2/`. Até o
-  Cesar decidir, post novo segue as regras de hoje.
-- **Apresentação de um post (D74):** quando o Cesar pedir a apresentação (PPT, slides, deck) de um post,
-  ela sai em `.pptx` no estilo do blog, com os desenhos, os prints e as marcações da caneta do próprio
-  post e as notas do apresentador: skill **`apresentacao`**, modo Criar, com as ferramentas de
-  `scripts/slides/`.
 - **Nunca** instalar skill, MCP ou pacote de terceiros sem ler o código antes e reportar ao Cesar o que
   for suspeito (rede, variáveis de ambiente, credenciais, comandos destrutivos).
-
-## Redesenho (D55, publicado na D61)
-
-O visual do site é a versão final do redesenho: **papel, tinta, latão e luz** (D61, 02/10/2026). O
-resumo está na seção "Papel e luz (D61)" do `DESIGN.md`, que vence as seções antigas dele (ainda das
-"Folhas claras", D26) até a reescrita. O detalhe de cada peça, com os pedidos do Cesar numerados, está
-em `docs/redesenho/rodada-4/`.
-
-- **Os protótipos ficam só nesta máquina**, fora do git (`redesenho/`, no `.gitignore`):
-  - os 10 modelos em <http://127.0.0.1:4400>;
-  - as cópias das rodadas 2 a 4 em `redesenho/novos/` (portas 4411 a 4430);
-  - a versão final com as amostras em <http://127.0.0.1:4421> (`/amostras/`).
-- **Onde está cada coisa:** a história das quatro rodadas está em `docs/redesenho/`. O processo está na
-  skill `redesenho`, e os agentes, em `.claude/agents/redesenho-*`.
-- **Mudança de visual** agora é no blog, pelas regras de sempre. Uma rodada nova de protótipos segue a
-  skill `redesenho`.
 
 ## Regras que valem sempre
 
@@ -77,9 +47,6 @@ em `docs/redesenho/rodada-4/`.
   O `.claude/settings.json` bloqueia a edição de arquivos lá, mas não cobre comandos no terminal.
   Um `git status` comum já regrava o `.git/index` de lá. Ao delegar para subagentes, repasse essa regra.
 - Antes de instalar qualquer biblioteca, proponha e espere o OK. Registre a decisão em `docs/decisoes.md`.
-- Logo de marca alheia (ferramenta, produto, empresa) só como a regra de marca do dono permite (D64): a
-  marca precisa estar conferida na política oficial e registrada em `src/marcas/regras.json` antes do
-  primeiro uso; registrada e permitida, usa sempre. Sem registro, o build quebra.
 - Cores só por tokens CSS (`var(--ink)`, `var(--cat)`…). Nada de hex solto em componente ou SVG.
 - Toda animação respeita `prefers-reduced-motion`: com ele ligado, tudo aparece no estado final,
   sem prender a tela.
@@ -96,9 +63,6 @@ em `docs/redesenho/rodada-4/`.
 - O caminho do projeto tem espaço (`novo site`): use aspas em todo comando e script.
 - Frase de autor (saiu na D39) só volta com a fonte primária aberta e conferida.
 - Se o Cesar corrigir a mesma coisa duas vezes, isso vira regra no lugar certo (skill, `.claude/rules/` ou aqui).
-- **Pedido num post termina em pergunta (D68):** depois de fazer o que o Cesar pediu ou reclamou num
-  post, pergunte se aquilo vira regra para os próximos posts, dizendo onde ela ficaria. Com o sim,
-  registre na hora; com o não, vale só para aquele post (skill `post`, "Regra de aprendizado").
 
 ## Livros, séries e tags
 
@@ -134,9 +98,8 @@ Aprovada em 23/09/2026. Detalhes em `docs/decisoes.md`.
 - Posts em Markdown (`.md`). `.mdx` só quando o post usa componente (lousa, figura, animação, ícone
   de ferramenta, print)
 - Expressive Code para código (título, linhas destacadas, diff, Copiar). KaTeX só em post com fórmula
-- CSS próprio com tokens, sem Tailwind e sem framework de UI. Visual "papel e luz" (D61): tudo é
-  papel (`.folha`, fichas de catálogo e papéis colados com fita), latão e luz sobre os livros, painéis
-  dos desenhos (`.painel`) e azul-tinta (`--acento`) no que é clicável
+- CSS próprio com tokens, sem Tailwind e sem framework de UI. Visual "Folhas claras" (D26): folhas
+  (`.folha`), painéis dos desenhos (`.painel`) e azul-tinta (`--acento`) no que é clicável
 - Fontes: Besley (títulos), Literata com `opsz` (texto), IBM Plex Sans (interface), JetBrains Mono
   (código); nos livros, Bitter e Newsreader itálico (D30); nas notas da caneta, Caveat (D48)
 - Busca com Pagefind e interface própria (D2, por medição): índice gerado no `postbuild`
@@ -165,12 +128,8 @@ npm run conferir -- <slug> [--base URL] [--capturas]   # o post em 320–1600px 
                      # Aceita um caminho no lugar do slug (/<caminho>/)
 npm run setup        # confere o ambiente (Node, dependências, skills, Chrome, motor do Impeccable)
 npm run apresentacao -- <slug> --pptx <arquivo> --titulo "…"   # slides do NotebookLM
-node scripts/slides/capturar.mjs <slug> [--base URL]   # as fotos do post para a apresentação (D74)
-python3 scripts/slides/posts/<slug>.py                 # gera a apresentação do post em saida/slides/<slug>/
-python3 scripts/slides/conferir.py <slug>              # PDF, imagens, folha de contato e checagens
-python3 scripts/slides/fontes.py [--instalar]          # as fontes do site em TTF (instalar = download, com OK)
 node scripts/desenho/validar.mjs [slug]   # regras da capa, das lousas, das figuras e das animações
-node scripts/desenho/validar.mjs marcas   # os logos das ferramentas (src/marcas/) e a regra de marca (D64)
+node scripts/desenho/validar.mjs marcas   # os logos das ferramentas (src/marcas/)
 node scripts/desenho/revisar.mjs <slug> --base <dev>   # revisão dos desenhos do post (D59): bugs + fotos
 node scripts/foto.mjs <url> <saida.png> [--seletor css] [--tema escuro] [--largura 390] …
                                           # foto de uma página ou de uma peça (Chrome próprio; opções no script)
@@ -207,7 +166,6 @@ PRODUCT.md               registro de produto do Impeccable (leitor, propósito, 
                          briefing vence em caso de divergência
 .impeccable/config.json  ajustes do Impeccable ("buildPath": "code")
 entrada/                 posts trazidos para adaptar (fora do git)
-saida/                   o que os scripts geram para entregar (fora do git): slides/<slug>/ (D74)
 docs/briefing.md         decisões de produto e design (fonte da verdade)
 docs/estado.md           painel: fase, pronto, próximos passos, perguntas
 docs/decisoes.md         registro de decisões (data, decisão, motivo, alternativas)
@@ -222,13 +180,6 @@ docs/historico/          rodadas fechadas: o prompt da Fase 0, os controles da D
                          (controle, regras dos agentes, diagnósticos, pesquisa e sugestões da D52) e
                          os protótipos superados
 docs/virada.md           plano para o domínio passar ao blog novo (só com OK do Cesar)
-docs/figura-em-passos/   a figura em passos (D67, em prova): o pedido (README), a pesquisa e a auditoria
-                         das peças animadas de 02/10/2026
-docs/redesenho/          redesenho (D55, D61): pedido, regras e status (README), a direção de cada modelo
-                         (modelos/), as rodadas 2 a 4 (rodada-N/: o texto do Cesar, a direção e o
-                         controle) e a API da base comum
-redesenho/               os protótipos do redesenho (fora do git, D61): projeto Astro próprio, porta
-                         4400, e as cópias do blog em novos/ (portas 4411 a 4430)
 docs/referencias/        protótipos aprovados da Fase 0 (estilo dos desenhos, lousas, "Folhas claras")
 docs/prototipos/         protótipos que ainda são referência (caneta, animações da D51)
 src/content/posts/       posts; nome do arquivo = slug da URL
@@ -236,23 +187,15 @@ src/data/                taxonomia e series (leem src/livros), java, decks (apre
                          (autor, perfis e textos), mao (os títulos à mão da papelaria, C05)
 src/amostra/             o conteúdo das páginas /amostra/ (recursos.md, recursos.mdx, caneta.md)
 src/styles/tokens.ts     cores dos dois temas: fonte única, gera as variáveis CSS (D4)
-src/styles/              base (folha, painel, papel colado, barra de rolagem, transição de página),
-                         fontes, avisos, prosa, artigo (grade, notas), paginas, estante e livro (lombada,
-                         livro 3D e capa), desenho (ilustrações), capa-viva, figura (figuras, animações
-                         e logos, D58), lousa e lousa-nova, caneta (marcações, D48), traco (traços à
-                         caneta, C04), visor, contador e copiado (D49); da D61: luz e livro-vivo (a luz
-                         dos livros e do mouse), vidro e nicho (o chão das fileiras e os abajures),
-                         catalogo (as fichas), gaveta, ficha-do-livro e suave (a entrada ao rolar)
+src/styles/              base (folha, painel, transição de página), fontes, avisos, prosa, artigo (grade,
+                         notas), paginas, estante e livro (lombada, livro 3D e capa), desenho
+                         (ilustrações), capa-viva, figura (figuras, animações e logos, D58), lousa e
+                         lousa-nova, caneta (marcações, D48), traco (traços à caneta, C04), visor,
+                         contador e copiado (D49)
 src/assets/              caveat-titulos.woff: a Caveat 600 só com as letras dos títulos à mão (C05)
 src/layouts/Base.astro   head, anti-piscada, cabeçalho, rodapé e busca
 src/components/          peças das páginas (estante, gaveta, sumário, avisos, busca…) e dos posts (Lousa,
-                         Figura, Animacao, Ferramenta, Evidencia; LousaTempo e LousaLoop só nos antigos);
-                         da D61: Colecao (a fileira da home), FileiraTopo (o alto da página do livro),
-                         PontoDeLuz e Luz (abajures e luz), Fichario, NuvemTags e FichasTags (Tags),
-                         Vizinhos e LivroDoArtigo (o fim do post), AbaTopo (voltar ao topo) e TracoTitulo
-src/computador/          o computador (D61): o ícone no canto, o macOS de mentira (sistema, janelas,
-                         dock, menus) e os apps (Finder, editor, Terminal, Pré-Visualização, Sobre); os
-                         dados vêm das rotas src/pages/mac/
+                         Figura, Animacao, Ferramenta, Evidencia; LousaTempo e LousaLoop só nos antigos)
 src/pages/               rotas; a home é [...page].astro (paginada, D27); livros/[slug].svg (desenho
                          da capa, que a gaveta busca ao abrir o livro, D30);
                          posts/[slug]/apresentacao.pdf.ts (PDF) e og/[slug] (imagem, D10)
@@ -267,24 +210,18 @@ src/lib/                 posts, formatos, busca (Pagefind), código (Expressive 
                          sol, contornos dos botões e a assinatura, D52, C04), figuras (lê figuras,
                          animações e logos, e troca `data-marca` pelo logo, D58)
 src/scripts/artigo.ts    interações do artigo (barra, sumário, notas, visor, apresentação)
-src/scripts/tema.ts      tema: a lâmpada do cabeçalho alterna claro e escuro, acendendo e apagando
-                         (D39, D61; a lâmpada em lampada.ts)
-src/scripts/             também: troca.js (a cortina e as chegadas), luz, estante-moderna, fichas-caem,
-                         fichario, revelar e embaralha (D61)
+src/scripts/tema.ts      tema: o botão do cabeçalho alterna claro e escuro (D39)
 scripts/                 contraste, links, apresentacao, og, copiar-katex, desenho/, bench-busca/,
                          marca, caveat-titulos (subconjunto da Caveat, C05), verificar-ambiente
                          (npm run setup e hook do início da sessão), livros/ (as fotos dos livros, D57),
-                         foto.mjs (foto de uma página ou peça, sem MCP, D58), slides/ (as apresentações
-                         no estilo do blog, D74: estilo.py, capturar.mjs, conferir.py, fontes.py e o
-                         roteiro de cada post em posts/<slug>.py)
+                         foto.mjs (foto de uma página ou peça, sem MCP, D58)
 public/posts/<slug>/     diagramas antigos e slides das apresentações (deck/)
 public/livros/fotos/     as fotos dos livros (D57): o deitado de cada livro e o aberto em branco
 src/ilustracoes/         uma ilustração SVG por post (<slug>.svg), com os recortes na raiz (D11)
 src/lousas/<slug>/       desenhos das lousas de cada post .mdx
 src/figuras/<slug>/      diagramas e gráficos coloridos do post (D58)
 src/animacoes/<slug>/    animações com play: o quadro final (<nome>.svg) e o movimento (<nome>.ts, GSAP)
-src/marcas/              logos das ferramentas (viewBox 100×100) e ícones genéricos, reaproveitados em todo
-                         post; regras.json, a regra de marca de cada um (D64)
+src/marcas/              logos das ferramentas (viewBox 100×100), reaproveitados em todo post
 src/evidencias/<slug>/   prints que provam algo do texto (PNG)
 .github/workflows/       deploy no GitHub Pages (a cada push na main, D34)
 .claude/skills/          procedimentos (carregados sob demanda); as de terceiros são cópias lidas
@@ -304,10 +241,7 @@ src/evidencias/<slug>/   prints que provam algo do texto (PNG)
   `LousaLoop` só nos posts antigos
 - `caneta`: a passada de caneta num post (a última etapa da skill `post`, ou sozinha: "passa a caneta
   no post X"), pelo guia `docs/marcacoes.md`
-- `apresentacao`: a apresentação de um post; Criar (D74): o `.pptx` no estilo do blog, com os desenhos e
-  a caneta do post; NotebookLM: o `.pptx` de lá vira os slides WebP e o PDF do post
-- `redesenho`: os modelos de visual novo (D55): direção, construção por agente, conferência e entrega
-  da URL ao Cesar; a versão final virou o site na D61
+- `apresentacao`: PowerPoint do NotebookLM → slides WebP e PDF
 - `serie-java`: série "Atualizações do Java" (só LTS)
 - De terceiros, lidas antes de instalar (D35): `impeccable` (revisão de design; o motor fica em
   `~/.impeccable`), `gsap-core`, `gsap-timeline`, `gsap-plugins`, `gsap-performance` e `gsap-utils` (animações; as de
@@ -319,9 +253,7 @@ src/evidencias/<slug>/   prints que provam algo do texto (PNG)
 ## Em outro computador
 
 - **Instalar à mão:** Node 22.12 ou mais novo (o Astro 7 exige; o projeto usa o 24, `.node-version`),
-  o Google Chrome e o Claude Code. O `pdftocairo` (poppler) só para regerar a marca. Para as
-  apresentações (D74): Python 3 com python-pptx, o LibreOffice, o poppler e as fontes do site em TTF
-  (`python3 scripts/slides/fontes.py`).
+  o Google Chrome e o Claude Code. O `pdftocairo` (poppler) só para regerar a marca.
 - **Depois do clone:** `npm run setup` (`scripts/verificar-ambiente.mjs`). Ele roda o `npm install`
   se faltar `node_modules`, confere as skills em `.claude/skills`, o Chrome e o **motor do
   Impeccable**, que não fica no git: é baixado para `~/.impeccable/bin/<versão>/` no primeiro uso
@@ -342,11 +274,6 @@ src/evidencias/<slug>/   prints que provam algo do texto (PNG)
 - O espaço entre dois `<tspan>` some ao embutir o SVG: use `&#160;`.
 - Antes de commitar (quando pedido): `git status --untracked-files=all`, e nada com " 2" no nome.
 - Deploy preso na fila: cancelar e reexecutar o workflow (o `gh` está instalado nesta máquina).
-- Mudou um token de cor? O tema dos blocos de código sai dos tokens (`src/lib/codigo.ts`), e o deploy
-  reaproveita o cache de conteúdo da execução anterior (`withastro/action`): os posts `.md` que não
-  mudaram saem apontando para um `ec.*.css` que não existe mais (na D61, a série Java). Depois do
-  push, apague os caches `astro-cache-*` do Actions (`gh cache delete`) e rode o deploy de novo (`gh
-  run rerun`), ou confira o site no ar com a fumaça.
 - Push sempre pelo remoto SSH (`origin` = `git@github.com:cesarschutz/blog.git`): pelo HTTPS com o
   token do `gh`, o GitHub recusa qualquer push que mexa em `.github/workflows/` (falta o escopo
   `workflow`). E lembre: push na `main` publica o site (D34).

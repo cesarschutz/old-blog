@@ -15,7 +15,6 @@ import Estante from "../components/Estante.astro";
 import { montarLivros } from "../lib/estante";
 import { getResumos, getTags, urlTag } from "../lib/posts";
 import { url } from "../lib/url";
-import "../styles/catalogo.css";
 
 const livros = await montarLivros();
 const resumos = await getResumos();
@@ -30,7 +29,7 @@ const enderecos = [
 
 <Base titulo="Página não encontrada" descricao="Esta página não existe ou mudou de endereço." semIndice>
   <div class="wrap nao-encontrada">
-    <div class="folha folha-lisa caixa">
+    <div class="folha caixa">
       <div class="erro">
         <p class="endereco" data-endereco hidden>
           <span data-texto-endereco></span><svg class="rasura" aria-hidden="true" focusable="false"></svg>
@@ -288,34 +287,24 @@ const enderecos = [
     color: var(--ink-2);
   }
 
-  /*
-   * A sugestão (rodada 4, H5): um papel pequeno sobre a folha, sem borda, com a sombra curta do papel: de
-   * onde é (o livro, com o quadradinho na cor dele), o nome e o caminho. No hover, a tinta azul bem clara.
-   */
+  /* O cartão da sugestão: de onde é (o livro, com o quadradinho na cor dele), o nome e o caminho. */
   .sugestao {
     display: inline-grid;
     gap: 4px;
     max-width: 100%;
     padding: 14px 18px;
-    border-radius: 2px;
-    background: var(--paper-hi);
-    box-shadow:
-      0 1px 1px color-mix(in oklab, var(--sombra-quente) 16%, transparent),
-      0 2px 4px -1px color-mix(in oklab, var(--sombra-quente) 22%, transparent);
+    border: 1px solid var(--rule);
+    border-radius: var(--raio-painel);
     color: var(--ink);
     text-decoration: none;
-    transition: background-color 0.15s;
-  }
-
-  :global(:root[data-theme="dark"]) .sugestao {
-    box-shadow:
-      0 0 0 1px color-mix(in oklab, var(--ink) 7%, transparent),
-      0 1px 1px color-mix(in oklab, var(--sombra-quente) 50%, transparent),
-      0 2px 5px -1px color-mix(in oklab, var(--sombra-quente) 60%, transparent);
+    transition:
+      border-color 0.15s,
+      background-color 0.15s;
   }
 
   .sugestao:hover {
-    background: color-mix(in oklab, var(--acento) 6%, var(--paper-hi));
+    border-color: var(--acento);
+    background: color-mix(in oklab, var(--acento) 5%, transparent);
   }
 
   .de-onde {

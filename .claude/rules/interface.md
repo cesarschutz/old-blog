@@ -41,16 +41,7 @@ Impeccable) e, para uma animação que já existe, `docs/movimento.md`.
   - a `Lousa` (play, arrasto, rolagem horizontal, passos, a caneta), a `Animacao` (a timeline GSAP de
     cada animação, carregada sob demanda), a `Figura` (só um observador que liga os detalhes que se
     mexem enquanto ela está na tela; o movimento é CSS) e a capa viva (`capa-viva.ts`: o evento vai
-    até o fim mesmo que o mouse saia) (D58);
-  - do visual "papel e luz" (D61):
-    - a luz: a lâmpada da troca de tema, a luz do mouse, os abajures e a onda e o brilho dos livros
-      (`lampada.ts`, `luz.ts`, `livro-vivo.ts`, `estante-moderna.ts`);
-    - as páginas: a cortina e as chegadas da troca de página (`troca.js`), as fichas que caem e o
-      fichário de Tags (`fichas-caem.ts`, `fichario.ts`) e a entrada ao rolar (`revelar.ts`,
-      `embaralha.ts`);
-    - a cordinha do rodapé, a aba "topo" e o voo do livro da home até a página dele;
-    - o computador (`src/computador/`, carregado sob demanda a partir do primeiro hover, foco ou
-      toque no ícone).
+    até o fim mesmo que o mouse saia) (D58).
 
   Artigo sem esses componentes funciona sem JS (as marcações da caneta são estáticas). Peça nova com
   JS entra nesta lista.
@@ -64,9 +55,8 @@ Impeccable) e, para uma animação que já existe, `docs/movimento.md`.
   abre na gaveta (`/livros/<slug>.svg`).
 - Os componentes são `Capa`, `MioloLombada` (a lombada, em pé e, girada, deitada no `PainelHome`),
   `Estante` (também no modo "filtro" do arquivo e das tags), `Gaveta`, `Livro3D`, `LivroEmPe`,
-  `TopoLivro` e `GradeLivros`, e, da D61, `Colecao` (a fileira da home), `FileiraTopo` (o alto da
-  página do livro), `PontoDeLuz` e `Luz` (abajures e luz): altere esses, sem criar outros em
-  paralelo. As peças paradas da D57 são imagens: `FotoDoLivro` (o livro deitado da ficha "Do livro", com as etiquetas em SVG por cima)
+  `TopoLivro` e `GradeLivros`: altere esses, sem criar outros em paralelo. As peças paradas da D57
+  são imagens: `FotoDoLivro` (o livro deitado da ficha "Do livro", com as etiquetas em SVG por cima)
   e `LivroEmBranco` (o livro aberto do livro sem artigos e da busca sem resultado), de
   `node scripts/livros/fotos.mjs` (`src/lib/fotos.ts`). `LivroAmpliado` copia o
   livro 3D para o visor e monta nele as páginas de dentro, de `/livros/<slug>.json` (D49).
@@ -109,11 +99,6 @@ Impeccable) e, para uma animação que já existe, `docs/movimento.md`.
 - O Chrome não pinta um elemento com `view-transition-name` dentro de um pai com opacidade 0: ele só
   aparece de repente quando o pai volta a 1. Para animar o elemento chegando, tire o nome dele (ou do
   pai) enquanto a opacidade estiver em zero, e devolva depois (D52).
-- **Animação ligada à rolagem** (`animation-timeline: scroll()` ou `view()`): escreva nas propriedades
-  separadas (`animation-name`, `animation-timing-function`, `animation-fill-mode`, `animation-timeline`,
-  `animation-range`), nunca o atalho `animation` com a timeline depois. O minificador do build (Lightning
-  CSS) junta os dois num atalho só, com a timeline dentro, e o Chrome descarta a declaração: funciona no
-  dev e some no site publicado (D62).
 - O `clearProps: "all"` do GSAP apaga o `style` inline **inteiro** do elemento, inclusive o que não
   foi o próprio GSAP quem pôs ali (cores e medidas em variáveis CSS escritas no HTML): passe a lista
   das propriedades que a animação mexeu, nunca `"all"` num elemento com estilo próprio (D52, revisão

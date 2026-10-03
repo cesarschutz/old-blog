@@ -5,8 +5,7 @@
     "ignoreFiles": [
       "scripts/**",
       "docs/**",
-      ".claude/**",
-      "redesenho/**"
+      ".claude/**"
     ],
     "ignoreValues": [
       {

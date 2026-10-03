@@ -7,7 +7,6 @@
   "exclude": [
     "dist",
     "bench",
-    "docs/prototipos",
-    "redesenho"
+    "docs/prototipos"
   ]
 }

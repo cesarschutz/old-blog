@@ -1,35 +1,13 @@
 # Estado do projeto
 
 Painel, não diário: fase atual, próximos passos, perguntas abertas e riscos. O detalhe de cada rodada
-fica em `docs/decisoes.md` (D1 a D69 e D74; a D70 à D73 estão em outras worktrees, sem commit) e no histórico do git; controles de rodadas fechadas, em
+fica em `docs/decisoes.md` (D1 a D60) e no histórico do git; controles de rodadas fechadas, em
 `docs/historico/`.
 
 ## Fase atual
 
 **No ar desde 25/09/2026 em <https://blog.cesarschutz.com.br>** (repositório `cesarschutz/blog`,
 D34): todo push na `main` publica. O blog antigo continua em `cesarschutz.com.br` (`docs/virada.md`).
-
-**O redesenho está no ar (D61, 02/10/2026):** a versão final do redesenho (D55, rodada 4, a `21-final`)
-virou o site, com o visual "papel, tinta, latão e luz". O papel é quente no claro e marrom no escuro, e
-tudo é papel (folhas, fichas de catálogo e papéis colados com fita). Há abajures de latão sobre os
-livros, a cortina entre as páginas, o fichário de Tags, o rodapé de feltro com a cordinha, a aba "topo"
-e o computador. Ela veio por cima da D59 e da D60, com os tokens dos desenhos recalibrados para o papel
-quente. O resumo do visual está na seção "Papel e luz (D61)" do `DESIGN.md`, e o detalhe, em
-`docs/redesenho/rodada-4/`. As quatro rodadas (10 modelos; 11 a 15; 16 a 20; a versão final com as
-amostras) estão em `docs/redesenho/`. Os protótipos e as amostras ficaram só nesta máquina, fora do
-git (`redesenho/`, no `.gitignore`).
-
-**Ajustes do Cesar no site novo (D62, 02/10/2026):** as cores dos temas voltaram às de antes do
-redesenho (o claro mais branco e o escuro preto esverdeado); a página de um livro mostra só os livros
-na fileira e nos vizinhos, e a da série só as séries (com uma série só, fica sem fileira); e a fileira
-que encolhe ao rolar, quebrada no ar pelo minificador do CSS, voltou a funcionar (a sombra do cabeçalho
-ao rolar também).
-
-**Formato dos posts (D63, 02/10/2026):** todo post, novo ou ajustado, começa por uma conversa com o
-Cesar: detalhado (com o TL;DR recolhível no alto, do campo `tldr`) ou resumo (com um infográfico no
-estilo dos guias do ByteByteGo, desenhado no nosso traço), a estrutura e as fontes (os links que ele
-estudou ou fontes confiáveis); os links ficam ao longo do texto e em Fontes. Configurado nas skills
-`post` e `figura`, na regra de posts e no briefing; o TL;DR de exemplo está em `/amostra/markdown/`.
 
 Tudo até a D52 está commitado, inclusive o C04 (a caneta preta como identidade) e o C05 (a papelaria
 de estudo: post-it "Neste artigo", ficha do livro, cola dos atalhos, commitado pelo Cesar em
@@ -131,56 +109,6 @@ cartão só, com os desenhos e o motor de verdade. Código em `src/amostra/contr
 auxiliares e uma opção por arquivo). Esperando o Cesar escolher; a escolhida vira os componentes `Lousa`
 e `Animacao`, e a página sai.
 
-Controles em prova nos posts (D65, 02/10/2026): as opções 2 (marca-texto), 3 (caderno) e 4 (post-it)
-estão cada uma numa lousa de passos, numa de comparação e numa animação com play, pelo `controles=` da
-`Lousa` e da `Animacao`. Opção 2: criptografia (passos e comparação) e Jackson (animação). Opção 3:
-Jackson (passos), CronJob (comparação) e cobrança duplicada no retry (animação). Opção 4: cobrança
-duplicada no retry (passos e comparação) e bloqueio otimista e pessimista (animação). A cobrança saiu do
-estilo antigo (as três peças refeitas) e o bloqueio ganhou a animação. As nove peças (a lousa de passos, a de
-comparação e a animação de cada opção) estão juntas em `/animacoes-test/` (noindex), para o Cesar ver no celular; a
-página sai junto com a do protótipo quando ele escolher.
-
-Marcas (D64, 02/10/2026): a regra de marca de cada logo foi conferida na política oficial do dono e
-registrada em `src/marcas/regras.json`; o build quebra com logo sem registro ou proibido. Dos 14 logos
-redesenhados, só o do Kubernetes pode ficar; os outros saíram dos três posts (no texto, só o nome; nos
-desenhos, ícones genéricos da casa: banco, fila, tópico, aplicação, servidor).
-
-Post novo de 02/10/2026 (D66, **publicado**): `claude-code-do-claude-md-ao-mod`, "Quanto custou cada
-agente? — Do CLAUDE.md ao mod no Claude Code", o primeiro do livro IA, com as tags novas Claude Code e
-Plugins (ícones novos). Formato detalhado, com o TL;DR: a linha do tempo das peças de extensão do Claude
-Code (de 24/02/2025 a 01/10/2026, cada data conferida no changelog e no npm), cada peça num parágrafo,
-o marketplace, os comandos, o mod e o csr-cockpit, do `claude-code-kit` do Cesar. Visuais: capa viva,
-uma figura (onde cada peça age), uma lousa de passos (da instalação à atualização) e quatro prints
-parados do cockpit (os desenhos do kit fotografados). O `Evidencia` ganhou `larga` e `foco`, para o
-print de terminal rolar de lado no celular. A caneta entrou com 35 marcações, aplicadas sem a
-aprovação prévia, a pedido dele: **o Cesar revê o post no ar** (o texto, a caneta, o TL;DR e os links ao
-longo do texto, que é o lembrete da D63). Feito numa worktree
-(`.claude/worktrees/post-do-claude-md-ao-mod`), porque havia outras sessões na pasta do projeto.
-
-Figura em passos (D67, 02/10/2026, **em prova** em `/animacoes-test-2/`): o Cesar achou as animações
-ruins de entender ("muita coisa, ou animação com coisa sumindo"). Uma auditoria às cegas das 10 peças
-animadas (1 clara, 5 médias, 4 ruins) e uma pesquisa (Mayer, informação que some, small multiples)
-estão em `docs/figura-em-passos/`. A proposta é um formato só no lugar dos três: uma figura parada que
-o leitor pode montar passo a passo, em que cada passo soma, nada some e nada anda sozinho (regras na
-skill `figura`, componente `FiguraPassos`). As 9 peças da `/animacoes-test/` (que segue no ar como
-estava) foram refeitas nele e, a pedido dele, já estão nos cinco posts, com o aviso dos traços embaixo
-da figura (`fim="segmentos"`). Também ficou a regra da D68: todo pedido dele num post termina na pergunta
-"vira regra para os próximos posts?".
-
-Botão da busca do cabeçalho (D69, 02/10/2026, **publicado**): o Lighthouse apontava, no desktop, que o
-`aria-label` "Buscar" não continha o texto da tela ("Buscar ⌘K"). O nome passou a vir do texto: saiu o
-`aria-label`, a tecla desenhada ganhou `aria-hidden` e, até 1100px, o "Buscar" sai só da vista em vez de
-`display: none` (sem isso, a lupa ficaria sem nome). A auditoria passa no desktop e no celular, no dev e
-no build, e o cabeçalho ficou idêntico pixel a pixel nos dois temas, de 320 a 1600px. Feito na worktree
-`.claude/worktrees/kind-shaw-14748f` (branch `claude/kind-shaw-14748f`) e publicado a pedido do Cesar.
-
-Apresentação de um post (D74, 02/10/2026, **publicado**): o Cesar gostou da apresentação do post dos mods,
-feita no estilo do blog, e pediu que toda apresentação saia assim. Ela sai em `.pptx` (e PDF), com os
-desenhos, os prints e as marcações da caneta do próprio post e as notas do apresentador: skill
-`apresentacao` (modo Criar) e as ferramentas de `scripts/slides/` (a biblioteca do estilo, as fotos do
-post, a conferência, as fontes em TTF e o roteiro de cada post, a começar pelo dos mods). O que sai fica
-em `saida/`, fora do git.
-
 ## Como ver
 
 - Dev: `fnm exec --using=24 npm run dev -- --host 127.0.0.1` (<http://127.0.0.1:4322>); parar com
@@ -193,9 +121,6 @@ em `saida/`, fora do git.
   `/posts/cobranca-duplicada-no-retry/`.
 - Exemplos da D58 (só local): `git switch exemplos-arquivo` em `../blog-exemplos`, dev com
   `--port 4330` e <http://127.0.0.1:4330/exemplos/>.
-- Redesenho (D55, fora do git desde a D61): os modelos em <http://127.0.0.1:4400>, as cópias das
-  rodadas 2 a 4 nas portas 4411 a 4430 e a versão final com as amostras em <http://127.0.0.1:4421>
-  (`/amostras/`). Os comandos estão em `docs/redesenho/base.md`.
 
 ## O que existe (resumo)
 
@@ -212,38 +137,18 @@ em `saida/`, fora do git.
 | D58 | capa viva, figuras coloridas, `Lousa` nova, animação com play, ícones das ferramentas, print; os três primeiros posts revistos |
 | D59 | a lousa no estilo das figuras (canetinha colorida), o destaque da legenda revisto e a revisão de todo desenho (`revisar.mjs`) |
 | D60 | o escuro dos desenhos do corpo: painel um pouco acima da folha, caixas com cor, tinta menos branca |
-| D55, D61 | o redesenho: 10 modelos, mais três rodadas e a versão final no ar (papel, tinta, latão e luz) |
-| D62 | as cores dos temas de antes do redesenho, livros e séries separados nas páginas de um livro, a fileira que encolhe consertada |
-| D63 | post detalhado (com TL;DR recolhível) ou resumo (com infográfico), combinado antes de escrever, e links ao longo do texto |
-| D64 | as marcas: regra de marca de cada logo conferida e registrada; só o Kubernetes redesenhado; ícones genéricos no lugar dos outros |
-| D65 | os controles em prova nos posts: marca-texto, caderno e post-it, cada um numa lousa de passos, numa de comparação e numa animação |
-| D66 | o post dos mods ("Quanto custou cada agente?"), o primeiro do livro IA: prints parados do cockpit, tags Claude Code e Plugins, e o print largo que rola de lado no celular |
-| D67 | figura em passos (em prova): um formato só no lugar da lousa de passos, da de comparação e da animação com play |
-| D68 | pedido do Cesar num post termina na pergunta "vira regra para os próximos posts?" |
-| D69 | o botão da busca do cabeçalho com o nome vindo do texto "Buscar" (sem `aria-label`), para a auditoria de nome do Lighthouse passar sem mudar a aparência |
-| D74 | a apresentação de um post no estilo do blog: `.pptx` com os desenhos e a caneta do próprio post e as notas do apresentador (skill `apresentacao`, `scripts/slides/`) |
 
 ## Próximos passos
 
-0. **O post dos mods (D66) é o "próximo post" da D63:** o pedido para o Cesar ver como ficaram o
-   formato combinado, o TL;DR recolhível e os links ao longo do texto foi feito no relatório da sessão
-   de 02/10/2026. Falta a resposta dele: ajustar o que ele disser e, depois disso, tirar o lembrete da
-   skill `post` e este item. No mesmo post, ele revê as 35 marcações da caneta (aplicadas sem a
-   aprovação prévia, a pedido dele).
-1. **Documentos do visual novo (D61):** reescrever o `DESIGN.md` inteiro para "papel e luz" (hoje a
-   seção da D61 vence as antigas, e no resto só os valores mudaram) e o `docs/briefing.md` §4 a §7 no
-   mesmo passo; conferir também `docs/movimento.md` (a abertura, a cortina e as chegadas mudaram).
-2. **Revisão em lote dos posts** (`.claude/revisao-posts.md`): 26 pendentes pela skill `post`, modo
+1. **Revisão em lote dos posts** (`.claude/revisao-posts.md`): 26 pendentes pela skill `post`, modo
    Adaptar, cada um terminando na caneta (skill `caneta`, com a proposta aprovada antes). Com a D58
    aprovada, a revisão troca `LousaTempo` e `LousaLoop` pela `Lousa` ou pela animação com play.
-3. **Blog antigo (D34):** os dois têm os mesmos artigos. Decidir entre `noindex` no novo até a
+2. **Blog antigo (D34):** os dois têm os mesmos artigos. Decidir entre `noindex` no novo até a
    virada, o antigo redirecionando para o novo ou a virada do domínio (`docs/virada.md`).
-4. **Medir no site publicado:** busca (regra 4 da D2) e Lighthouse (o desempenho não é medido desde a
-   D26; acessibilidade, boas práticas e SEO foram medidos no build na D69, em dez tipos de página, e os
-   achados estão na pergunta 14).
-5. **Peso das páginas (B14):** 160 a 440 KB abertos, pelos SVGs embutidos; merece um item próprio.
-6. **Página Sobre:** o Cesar escreve (D33). Até lá, `/about/` leva à home.
-7. **`scripts/desenho/render.mjs` fotografa a abertura do site (D51)** em vez da folha de conferência:
+3. **Medir no site publicado:** busca (regra 4 da D2) e Lighthouse (não medido desde a D26).
+4. **Peso das páginas (B14):** 160 a 440 KB abertos, pelos SVGs embutidos; merece um item próprio.
+5. **Página Sobre:** o Cesar escreve (D33). Até lá, `/about/` leva à home.
+6. **`scripts/desenho/render.mjs` fotografa a abertura do site (D51)** em vez da folha de conferência:
    falta `reducedMotion: "reduce"` na página que ele abre (achado em 29/09/2026; contornado com uma
    cópia local).
 
@@ -276,47 +181,22 @@ Escolhas feitas para não parar; todas voltam atrás com pouco trabalho.
    atalhos sem o sublinhado azul animado do título.
 9. **Carimbo "fontes conferidas em …"** no fim do artigo: pede um campo novo no frontmatter e a
    conferência post a post.
-10. **Blocos de código com `content-visibility: auto`** (`prosa.css`): a altura estimada erra de −38 a
+10. **Lousa `tempo` da idempotência:** a linha que marca o instante passa por cima dos rótulos
+    "pede", "cobra" e "tenta de novo" (achado pela `/amostra/lousas/`). Corrige?
+11. **`LousaTempo` fora da tela e no toque (achados de 29/09/2026):** pausar o loop quando a lousa sai
+    da tela, como a `LousaLoop` já faz (economiza bateria), e, no celular, só tomar o gesto do desenho
+    depois de um movimento horizontal (hoje o toque que só queria rolar leva a lousa para outro
+    instante). Faço? A `Lousa` da D58 já faz os dois; a pergunta vale para os posts antigos até serem
+    revistos.
+12. **Blocos de código com `content-visibility: auto`** (`prosa.css`): a altura estimada erra de −38 a
     +23px em 390px; depois de pular pelo sumário ou pelo "voltar ao topo" e rolar para cima, o Safari
     pode dar um salto único. Não é o sobe e desce que o Cesar viu. Troco por `contain-intrinsic-size`
     mais justo ou tiro o `content-visibility`?
-11. **Marcas (D64), o que ficou para decidir:** o mascote Duke (licença BSD) redesenhado no lugar da
-    xícara do Java? O arquivo oficial do MongoDB, do PostgreSQL e do Kafka no texto (precisa baixar os
-    arquivos, com o seu OK)? Os ícones oficiais da AWS nos diagramas (só para cliente da AWS e sem
-    alterar tamanho, cor ou forma)? Uma nota de marcas no rodapé ("os nomes de produtos citados são marcas
-    dos respectivos donos; este blog não tem vínculo com eles"), que várias políticas pedem?
-12. **Post dos mods (D66), o que ficou para decidir:**
-    - o tamanho: cerca de 3.300 palavras, acima do teto de ~3.000 do formato detalhado. Fica assim, ou
-      as seções do marketplace, dos comandos e de como se testa um mod viram um segundo post ("como
-      publicar e manter um plugin")?
-    - as tabelas largas no celular: hoje as colunas encolhem até uma palavra por linha antes de a
-      tabela rolar de lado (a linha do tempo foi resolvida no conteúdo, em duas colunas). Vale uma
-      largura mínima no CSS das tabelas, para todos os posts?
-    - o campo `codigo` do post apontando para o `claude-code-kit` (hoje ele é só do `blog-exemplos`)?
-    - a branch local `post-claude-code-mod` (vazia, criada na pasta do projeto antes da worktree) e a
-      worktree `.claude/worktrees/post-do-claude-md-ao-mod` podem ser apagadas depois da publicação.
-13. **Figura em passos (D67):** aprova o formato (`/animacoes-test-2/`)? Se sim, ele vira a `Figura` com
-    `passos`, as lousas e animações dos posts são refeitas nele pela revisão dos posts e as páginas de
-    teste e a dos controles (D65) saem do ar. A lousa da instalação do post dos mods, que a auditoria
-    julgou ruim (três histórias numa peça), não está entre as 9: refaço também? E qual aviso de "o
-    passo terminou" fica, das cinco ideias no fim da página (a sugestão é a 1, o Próximo que se enche,
-    ou ela com a 5, os traços embaixo da figura)?
-14. **Lighthouse fora do cabeçalho (achados da D69, que já estão no ar):**
-    - a mesma auditoria de nome (`label-content-name-mismatch`, peso 0) falha por outros elementos: os 9
-      livros da fileira da home, os 2 vizinhos da página de um livro, as 22 tags de Tags e o livro de
-      Séries. Corrijo do mesmo jeito (o nome vindo do texto, com o enfeite fora do nome)?
-    - o "Lista" do seletor de modo dá contraste 1,18 no Lighthouse. É falso positivo (a tinta azul é
-      recortada por `clip-path`, e o texto está sobre o papel, com 6,48:1), mas custa 4 pontos: nota 96
-      na home, no arquivo, na página de um livro e na de uma tag. Vale mexer na tinta para a nota voltar
-      a 100 (o jeito ainda precisa ser estudado, sem perder o movimento dela), ou fica como está?
-    - o Lighthouse mede o contraste no meio das animações de entrada (home, arquivo e Tags) e acusa
-      valores que somem com a página assentada. Fica como está?
-    - a worktree `.claude/worktrees/kind-shaw-14748f` (a da D69) pode ser apagada: a D69 já está na `main`.
+13. **Logos das ferramentas (D58):** os de AWS, Kubernetes, Java e outros são redesenhados à mão, e a
+    C04 (D52) deixou GitHub e LinkedIn com as marcas oficiais porque as regras das duas proíbem
+    redesenhar. Conferir as regras de marca dessas ferramentas antes de publicar, ou manter assim?
 
 ## Riscos a acompanhar
-
-- A `main` local da worktree `../blog-exemplos` ficou atrás da remota: a D61 foi publicada de outra
-  branch (`redesenho-final`), com push direto para a `origin/main`. Antes de mexer lá, `git pull`.
 
 - Tremor (`feTurbulence`) nas lousas animadas: 60 quadros por segundo no Chrome desta máquina com CPU
   4× e DPR 3; falta um iPhone de verdade. Plano B: gravar o tremor na geometria, no build.
